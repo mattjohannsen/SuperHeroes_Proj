@@ -33,7 +33,10 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes/Create
         public ActionResult Create()
         {
-            return View();
+           //return View();
+
+            var superheroes = _context.SuperHeroes;
+            return View(superheroes);
         }
 
         // POST: SuperHeroes/Create
@@ -46,6 +49,7 @@ namespace SuperHeroes.Controllers
                 // TODO: Add insert logic here
                 _context.SuperHeroes.Add(superHero);
                 _context.SaveChanges();
+
                 return RedirectToAction(nameof(Index));
             }
             catch
