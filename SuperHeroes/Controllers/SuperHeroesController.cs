@@ -21,7 +21,9 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes
         public ActionResult Index()
         {
-            return View();
+            //return View();
+            var superheroes = _context.SuperHeroes;
+            return View(superheroes);
         }
 
         // GET: SuperHeroes/Details/5
@@ -33,10 +35,8 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes/Create
         public ActionResult Create()
         {
-           //return View();
+           return View();
 
-            var superheroes = _context.SuperHeroes;
-            return View(superheroes);
         }
 
         // POST: SuperHeroes/Create
@@ -46,7 +46,7 @@ namespace SuperHeroes.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                // TODO: Add insert logic here // I added this here.
                 _context.SuperHeroes.Add(superHero);
                 _context.SaveChanges();
 
