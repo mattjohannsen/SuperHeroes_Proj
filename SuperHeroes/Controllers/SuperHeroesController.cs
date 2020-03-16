@@ -12,7 +12,7 @@ namespace SuperHeroes.Controllers
     public class SuperHeroesController : Controller
     {
         public ApplicationDbContext _context;
-        private object context;
+        //private object context;
 
         public SuperHeroesController(ApplicationDbContext context)
         {
@@ -29,7 +29,9 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            SuperHero superHero = _context.SuperHeroes.Where(a => a.Id == id).FirstOrDefault();
+            return View(superHero);
+            //return View();
         }
 
         // GET: SuperHeroes/Create
@@ -46,7 +48,7 @@ namespace SuperHeroes.Controllers
         {
             try
             {
-                // TODO: Add insert logic here // I added this here.
+                // TODO: Add insert logic here // I added this below here.
                 _context.SuperHeroes.Add(superHero);
                 _context.SaveChanges();
 
