@@ -12,6 +12,8 @@ namespace SuperHeroes.Controllers
     public class SuperHeroesController : Controller
     {
         public ApplicationDbContext _context;
+        private object context;
+
         public SuperHeroesController(ApplicationDbContext context)
         {
             _context = context;
@@ -42,7 +44,8 @@ namespace SuperHeroes.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                _context.SuperHeroes.Add(superHero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
