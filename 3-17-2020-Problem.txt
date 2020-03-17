@@ -1,0 +1,23 @@
+Questions to be Answered
+When faced with a problem, the first thought that comes to mind is to immediately find more information and/or a solution. Every time one of the instructors/developers run into an issue, they immediately begin asking themselves the questions below. 
+Additionally, this is the standard professional format for seeking direction from a colleague or supervisor. Each must be thoroughly thought out, concise, and clear. 
+Please answer the following questions and return in a group Slack message to all the instructors. In the meantime, keep researching and problem solving. 
+What is the task you are trying to accomplish? What is the goal? (answer below)
+Create an index page for superheroes.  I keep getting the following error:
+An unhandled exception occurred while processing the request.
+InvalidOperationException: The view 'Index' was not found. The following locations were searched:
+/Views/SuperHeroes/Index.cshtml
+/Views/Shared/Index.cshtml
+/Pages/Shared/Index.cshtml
+Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable<string> originalLocations)
+
+What do you think the problem or impediment is? (answer below)
+
+
+What have you specifically tried in your code? (answer below)
+        public ActionResult Index()
+        {
+            //return View();
+            var superheroes = _context.SuperHeroes;
+            return View(superheroes);
+        }
