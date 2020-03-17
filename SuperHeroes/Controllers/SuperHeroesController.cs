@@ -92,16 +92,19 @@ namespace SuperHeroes.Controllers
         // POST: SuperHeroes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(SuperHero superHero)
         {
+            superHero = _context.SuperHeroes.Where(a => a == superHero).FirstOrDefault();
+            _context.SuperHeroes.Remove(superHero);
             try
             {
-                // TODO: Add delete logic here
-
+                // TODO: Add delete logic here// I added this
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(e);
                 return View();
             }
         }
