@@ -73,7 +73,7 @@ namespace SuperHeroes.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                // TODO: Add update logic here //Added
                 SuperHero superHeroFromDb = _context.SuperHeroes.Where(s => s.Id == superHero.Id).FirstOrDefault();
                 superHeroFromDb.name = superHero.name;
                 superHeroFromDb.alterEgo = superHero.alterEgo;

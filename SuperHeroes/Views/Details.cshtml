@@ -1,0 +1,48 @@
+﻿@model SuperHeroes.Models.SuperHero
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SuperHero</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.alterEgo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.alterEgo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.primaryAbility)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.primaryAbility)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.secondaryAbility)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.secondaryAbility)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.catchphrase)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.catchphrase)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
