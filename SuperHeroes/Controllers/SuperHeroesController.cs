@@ -29,16 +29,21 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes/Details/5
         public ActionResult Details(int id)
         {
-            SuperHero superHeroFromDb = _context.SuperHeroes.Where(s => s.Id == id).FirstOrDefault();
-            return View(superHeroFromDb);
-            //return View();
+            try
+            {
+                SuperHero superHeroFromDb = _context.SuperHeroes.Where(s => s.Id == id).FirstOrDefault();
+                return View(superHeroFromDb);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
         }
 
         // GET: SuperHeroes/Create
         public ActionResult Create()
         {
            return View();
-
         }
 
         // POST: SuperHeroes/Create
@@ -48,13 +53,12 @@ namespace SuperHeroes.Controllers
         {
             try
             {
-                // TODO: Add insert logic here // I added this below here.
                 _context.SuperHeroes.Add(superHero);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }
@@ -81,7 +85,6 @@ namespace SuperHeroes.Controllers
         {
             try
             {
-                // TODO: Add update logic here //Added
                 SuperHero superHeroFromDb = _context.SuperHeroes.Where(s => s.Id == superHero.Id).FirstOrDefault();
                 superHeroFromDb.name = superHero.name;
                 superHeroFromDb.alterEgo = superHero.alterEgo;
@@ -93,7 +96,6 @@ namespace SuperHeroes.Controllers
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
                 return View();
             }
         }
@@ -122,13 +124,11 @@ namespace SuperHeroes.Controllers
             {
                 superHero = _context.SuperHeroes.Where(a => a == superHero).FirstOrDefault();
                 _context.SuperHeroes.Remove(superHero);
-                // TODO: Add delete logic here// I added this
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception e)
             {
-                //Console.WriteLine(e);
                 return View();
             }
         }
