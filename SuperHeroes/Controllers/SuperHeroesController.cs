@@ -64,30 +64,40 @@ namespace SuperHeroes.Controllers
         public ActionResult Edit(int id)
         {
             // get superhero with this id and send into view
+            //try
+            //{
+            //    // TODO: Add update logic here
+
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
             try
             {
                 // TODO: Add update logic here //Added
                 SuperHero superHeroFromDb = _context.SuperHeroes.Where(s => s.Id == id).FirstOrDefault();
-
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Edit));
+                //return RedirectToAction(nameof(Edit));
+                //return Edit(superHeroFromDb);
+                return View(superHeroFromDb);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
                 return View();
             }
             //Need to change it to be like something below
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //SuperHero superHero = _context.SuperHeroes.Find(id);
-            //if (superHero == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //return View(movie);
+            ////if (id == null)
+            ////{
+            ////    return StatusCode(StatusCodes.Status500InternalServerError, id);
+            ////}
+            ////SuperHero superHero = _context.SuperHeroes.Find(id);
+            ////if (superHero == null)
+            ////{
+            ////    return HttpNotFound();
+            ////}
+            ////return View(superHero);
+            //return View();
         }
 
         // POST: SuperHeroes/Edit/5
