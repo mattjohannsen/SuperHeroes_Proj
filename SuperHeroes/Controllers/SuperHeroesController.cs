@@ -27,10 +27,10 @@ namespace SuperHeroes.Controllers
         }
 
         // GET: SuperHeroes/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(SuperHero superHero)
         {
-            SuperHero superHero = _context.SuperHeroes.Where(a => a.Id == id).FirstOrDefault();
-            return View(superHero);
+            SuperHero superHeroFromDb = _context.SuperHeroes.Where(s => s.Id == superHero.Id).FirstOrDefault();
+            return View(superHeroFromDb);
             //return View();
         }
 
