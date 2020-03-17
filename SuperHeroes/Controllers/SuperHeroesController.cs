@@ -103,16 +103,12 @@ namespace SuperHeroes.Controllers
         {
             try
             {
-                SuperHero superHero = _context.SuperHeroes.Where(s => s.Id == id).FirstOrDefault();
-                _context.SuperHeroes.Remove(superHero);
-                // TODO: Add delete logic here// I added this
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                SuperHero superHeroFromDb = _context.SuperHeroes.Where(s => s.Id == id).FirstOrDefault();
+                return View(superHeroFromDb);
             }
             catch (Exception e)
             {
-                //Console.WriteLine(e);
-                return View("Index");
+                return View();
             }
         }
 
